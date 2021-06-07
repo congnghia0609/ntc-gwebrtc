@@ -13,8 +13,8 @@ import (
 	"github.com/pion/turn"
 )
 
-func createAuthenHandler() turn.AuthHandler {
-	return func(username string, srcAddr net.Addr) (key string, ok bool) {
+func createAuthHandler() turn.AuthHandler {
+	return func(username string, srcAddr net.Addr) (string, bool) {
 		return "password", true
 	}
 }
@@ -29,11 +29,11 @@ func main() {
 		realm = "localhost"
 	}
 
-	udpPostStr := os.Getenv("UDP_PORT")
-	if udpPostStr == "" {
-		udpPostStr = "3478"
+	udpPortStr := os.Getenv("UDP_PORT")
+	if udpPortStr == "" {
+		udpPortStr = "3478"
 	}
-	udpPort, err := strconv.Atoi(udpPostStr)
+	udpPort, err := strconv.Atoi(udpPortStr)
 	if err != nil {
 		log.Panic(err)
 	}
@@ -49,7 +49,7 @@ func main() {
 
 	s := turn.NewServer(&turn.ServerConfig{
 		Realm:              realm,
-		AuthHandler:        createAuthenHandler(),
+		AuthHandler:        createAuthHandler(),
 		ChannelBindTimeout: channelBindTimeout,
 		ListeningPort:      udpPort,
 		LoggerFactory:      logging.NewDefaultLoggerFactory(),
@@ -60,7 +60,7 @@ func main() {
 	if err != nil {
 		log.Panic(err)
 	}
-	log.Printf("TURN server is running on port: %s", udpPostStr)
+	log.Printf("TURN server is running on port: %s", udpPortStr)
 
 	<-c
 	err = s.Close()

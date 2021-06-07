@@ -68,24 +68,24 @@ function PionSession (wsUri, rtcPeerConfiguration) {
       this.eventHandler({type: PionEvents.PEER_P2P_SIGNALING_STATUS, sessionKey: remoteSessionKey, signalingState: pc.signalingState})
     }
 
-    let handleMediaStreamIds = []
+    let handledMediaStreamIds = []
     pc.ontrack = (event) => {
       let mediaStream = event.streams[0];
-      let foundIndex = handleMediaStreamIds.indexOf(mediaStream.id);
+      let foundIndex = handledMediaStreamIds.indexOf(mediaStream.id);
       if (foundIndex !== -1) {
         return;
       }
-      handleMediaStreamIds.push(mediaStream.id);
+      handledMediaStreamIds.push(mediaStream.id);
 
       event.track.onended = () => {
-        if (handleMediaStreamIds.indexOf(mediaStream.id) === -1) {
+        if (handledMediaStreamIds.indexOf(mediaStream.id) === -1) {
           return;
         }
-        handleMediaStreamIds = handleMediaStreamIds.filter(mediaStreamId => mediaStreamId !== mediaStream.id);
-        this.eventHandler({type: PionEvents.MEDIA_STOP, mediaStream, sessionKey: remoteSessionKey});
+        handledMediaStreamIds = handledMediaStreamIds.filter(mediaStreamId => mediaStreamId !== mediaStream.id);
+        this.eventHandler({type: PionEvents.MEDIA_STOP, media: mediaStream, sessionKey: remoteSessionKey});
       }
 
-      this.eventHandler({type: PionEvents.MEDIA_START, mediaStream, sessionKey: remoteSessionKey});
+      this.eventHandler({type: PionEvents.MEDIA_START, media: mediaStream, sessionKey: remoteSessionKey});
     }
 
     for (let mediaStream of mediaStreams) {
@@ -221,9 +221,9 @@ function PionSession (wsUri, rtcPeerConfiguration) {
         mediaStream.getTracks().forEach(track => pc.addTrack(track, mediaStream));
       } else if (mutation === 'removeTrack') {
         let trackIds = mediaStream.getTracks().map(track => track.id);
-        for (let rtcSender of pc.getSenders()) {
-          if (trackIds.indexOf(rtcSender.track.id) !== -1) {
-            pc.removeTrack(rtcSender);
+        for (let rtpSender of pc.getSenders()) {
+          if (trackIds.indexOf(rtpSender.track.id) !== -1) {
+            pc.removeTrack(rtpSender);
           }
         }
       }

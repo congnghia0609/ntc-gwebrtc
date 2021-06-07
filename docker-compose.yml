@@ -1,0 +1,23 @@
+version: "3"
+
+services: 
+  signal:
+    build: ./signal
+    ports: 
+      - "5001:443"
+    volumes: 
+      - ./signal:/usr/local/src/github.com/congnghia0609/ntc-gwebrtc/signal
+  turn:
+    build: ./turn
+    environment: 
+      - REALM=localhost
+    ports: 
+      - "3478:3478/udp"
+    volumes: 
+      - ./turn:/usr/local/src/github.com/congnghia0609/ntc-gwebrtc/turn
+  web:
+    build: ./web
+    ports: 
+      - "5000:443"
+    volumes: 
+      - ./web:/usr/local/src/github.com/congnghia0609/ntc-gwebrtc/web

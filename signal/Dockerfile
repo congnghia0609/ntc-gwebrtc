@@ -1,4 +1,4 @@
-FROM alpine:lastest
+FROM alpine:latest
 
 ENV GOPATH /usr/local
 
@@ -10,4 +10,4 @@ COPY localhost* /root/
 WORKDIR /usr/local/src/github.com/congnghia0609/ntc-gwebrtc/signal
 CMD gin -p 443\
         --certFile=/root/localhost.pem\
-	      --keyFile=/root/localhost.key
+	--keyFile=/root/localhost.key
