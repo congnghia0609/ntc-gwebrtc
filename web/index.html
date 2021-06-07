@@ -7,8 +7,12 @@
   <title>GWebRTC</title>
 </head>
 <body>
-  <button id="toggleVideo">Toggle</button>
-  <video id="localVideo" controls="true" muted=""></video>
+  <div>
+    <video id="localVideo" controls="true" muted="" width="256" height="144"></video>
+  </div>
+  <div>
+    <button id="toggleVideo">Toggle</button>
+  </div>
   <div id="remoteVideos"></div>
 
   <script src="https://webrtc.github.io/adapter/adapter-6.1.1.js"> </script>
@@ -17,7 +21,8 @@
   <script type="module">
     // import {PionSession, PionEvents} from 'https://rawgit.com/pions/pion-browser-client/master/index.js';
     import {PionSession, PionEvents} from '/js/pion.js';
-    const SIGNALER_URI = 'localhost:5001';
+    // const SIGNALER_URI = 'localhost:5001';
+    const SIGNALER_URI = 'ws://localhost:5001';
 
     let addRemoteVideo = media => {
       let video = document.createElement('video');
