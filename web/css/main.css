@@ -1,0 +1,10 @@
+
+#remoteVideos {
+  margin: 10px 0px;
+}
+
+#remoteVideos video {
+  width: 256px;
+  height: 144px;
+  margin-left: 5px;
+}

@@ -8,6 +8,5 @@ RUN go get -u -v github.com/pion/signaler
 COPY localhost* /root/
 
 WORKDIR /usr/local/src/github.com/congnghia0609/ntc-gwebrtc/signal
-CMD gin -p 443\
-        --certFile=/root/localhost.pem\
-	--keyFile=/root/localhost.key
+# CMD gin -p 443 --certFile=/root/localhost.pem --keyFile=/root/localhost.key
+CMD gin -p 8080

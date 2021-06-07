@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GWebRTC</title>
+  <link href="/css/main.css" type="text/css" rel="stylesheet">
 </head>
 <body>
   <div>
@@ -21,7 +22,8 @@
   <script type="module">
     // import {PionSession, PionEvents} from 'https://rawgit.com/pions/pion-browser-client/master/index.js';
     import {PionSession, PionEvents} from '/js/pion.js';
-    const SIGNAL_URI = 'wss://localhost:5001';
+    // const SIGNAL_URI = 'wss://localhost:5001';
+    const SIGNAL_URI = 'ws://localhost:5001';
 
     let addRemoteVideo = media => {
       let video = document.createElement('video');
