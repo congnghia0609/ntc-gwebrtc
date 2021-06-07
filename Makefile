@@ -9,3 +9,7 @@ web:
 signal:
 	# @cd ./signal; gin -p 5001 --certFile=localhost.pem --keyFile=localhost.key; cd ..;
 	@cd ./signal; gin -p 5001; cd ..;
+
+.PHONY: turn
+turn:
+	@cd ./turn; reflex -r . -s go run main.go; cd ..;
