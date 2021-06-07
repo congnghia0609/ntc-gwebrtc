@@ -9,4 +9,4 @@ COPY localhost* /root/
 WORKDIR /usr/local/src/github.com/congnghia0609/ntc-gwebrtc/web
 CMD ran -p 443\
         --cert=/root/localhost.pem\
-  	    --key=/root/localhost.key
+  	--key=/root/localhost.key

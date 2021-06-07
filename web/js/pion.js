@@ -16,9 +16,9 @@ const PionEvents = window.PionEvents = {
   ERROR: 'ERROR'
 }
 
-function PionSession (signalerUri, sessionParams, rtcPeerConfiguration) {
+function PionSession (wsUri, rtcPeerConfiguration) {
   if (!(this instanceof PionSession)) {
-    return new PionSession(signalerUri, sessionParams, rtcPeerConfiguration);
+    return new PionSession(wsUri, rtcPeerConfiguration);
   }
 
   const DEFAULT_RTC_PEER_CONFIG = {
@@ -153,7 +153,7 @@ function PionSession (signalerUri, sessionParams, rtcPeerConfiguration) {
     currentTimeout += STEP_TIMEOUT;
 
     // ws = new WebSocket(`wss://${signalerUri}?${sessionParams}`)
-    ws = new WebSocket(signalerUri)
+    ws = new WebSocket(wsUri)
     ws.onmessage = (event) => {
       let message = JSON.parse(event.data);
       if (!message) {

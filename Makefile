@@ -1,5 +1,5 @@
-# Author:       nghiatc
-# Email:        congnghia0609@gmail.com
+# Author: nghiatc
+# Since: Jun 07, 2021
 
 .PHONY: web
 web:

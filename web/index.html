@@ -21,8 +21,7 @@
   <script type="module">
     // import {PionSession, PionEvents} from 'https://rawgit.com/pions/pion-browser-client/master/index.js';
     import {PionSession, PionEvents} from '/js/pion.js';
-    // const SIGNALER_URI = 'localhost:5001';
-    const SIGNALER_URI = 'ws://localhost:5001';
+    const SIGNAL_URI = 'ws://localhost:5001';
 
     let addRemoteVideo = media => {
       let video = document.createElement('video');
@@ -55,9 +54,9 @@
           localVideo.play();
         }
 
-        // The default port for sending (or listening to) STUN/TURN requests is 3478.
-        // The default port for sending (or listening to) STUN/TURN over TLS is 5349.
-        let pionSession = new PionSession(SIGNALER_URI, '', {
+        // The default port of STUN/TURN requests is 3478.
+        // The default port of STUN/TURN over TLS is 5349.
+        let pionSession = new PionSession(SIGNAL_URI, {
           iceServers: [
             {
               urls: 'stun:localhost:3478',
