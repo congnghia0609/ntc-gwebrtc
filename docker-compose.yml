@@ -1,14 +1,21 @@
-version: "3"
+version: "3.8"
 
 services:
   signal:
+    container_name: signal
+    image: signal
     build: ./signal
     ports:
       # - "5001:443"
       - "5001:8080"
     volumes:
       - ./signal:/usr/local/src/github.com/congnghia0609/ntc-gwebrtc/signal
+    # networks:
+    #   webrtc_net:
+    #     ipv4_address: 172.10.0.4
   turn:
+    container_name: turn
+    image: turn
     build: ./turn
     environment:
       - REALM=localhost
@@ -16,9 +23,34 @@ services:
       - "3478:3478/udp"
     volumes:
       - ./turn:/usr/local/src/github.com/congnghia0609/ntc-gwebrtc/turn
+    # networks:
+    #   webrtc_net:
+    #     ipv4_address: 172.10.0.3
   web:
+    container_name: web
+    image: web
     build: ./web
     ports:
       - "5000:443"
     volumes:
       - ./web:/usr/local/src/github.com/congnghia0609/ntc-gwebrtc/web
+    # networks:
+    #   - signal_net
+    #   - turn_net
+
+# networks:
+#   webrtc_net:
+#     ipam:
+#       driver: default
+#       config:
+#         - subnet: 172.10.0.0/24
+#   # signal_net:
+#   #   ipam:
+#   #     driver: default
+#   #     config:
+#   #       - subnet: 10.1.0.0/16
+#   # turn_net:
+#   #   ipam:
+#   #     driver: default
+#   #     config:
+#   #       - subnet: 172.10.0.0/16

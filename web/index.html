@@ -55,6 +55,7 @@
         localVideo.onloadedmetadata = function(e) {
           localVideo.play();
         }
+        console.log("localMediaStream.id: ", localMediaStream.id);
 
         // The default port of STUN/TURN requests is 3478.
         // The default port of STUN/TURN over TLS is 5349.
@@ -62,6 +63,8 @@
           iceServers: [
             {
               urls: 'stun:localhost:3478',
+              username: 'user',
+              credentials: 'auth-token'
             }
           ],
           mandatory: {OfferToReceiveVideo: true, OfferToReceiveAudio: true}

@@ -53,7 +53,7 @@ func main() {
 		ChannelBindTimeout: channelBindTimeout,
 		ListeningPort:      udpPort,
 		LoggerFactory:      logging.NewDefaultLoggerFactory(),
-		Software:           os.Getenv("SOFTWARE"),
+		Software:           "GTURN-1.4.0",
 	})
 
 	err = s.Start()
