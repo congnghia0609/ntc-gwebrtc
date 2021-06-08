@@ -17,7 +17,7 @@ cd $GOPATH/src/github.com/congnghia0609/ntc-gwebrtc
 ./gen-ssl-cert.sh
 ```
 
-**Option 1: Start by DOcker**
+**Option 1: Start docker**
 - Start docker compose.
 ```bash
 # Start all module
