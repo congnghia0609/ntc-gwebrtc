@@ -20,7 +20,6 @@
   <!-- <script src="https://rawgit.com/pions/pion-browser-client/master/index.js" type="module"> </script> -->
   <script src="/js/pion.js" type="module"> </script>
   <script type="module">
-    // import {PionSession, PionEvents} from 'https://rawgit.com/pions/pion-browser-client/master/index.js';
     import {PionSession, PionEvents} from '/js/pion.js';
     // const SIGNAL_URI = 'wss://localhost:5001';
     const SIGNAL_URI = 'ws://localhost:5001';
@@ -100,60 +99,6 @@
       .catch(err => {
         console.log('The following error occurred when trying to use getUserMedia: ' + err);
       });
-
-
-    // navigator.mediaDevices.getUserMedia({
-    //   video: true,
-    //   audio: true
-    // },
-    // function(localMediaStream){
-    //   let localVideo = document.getElementById('localVideo');
-    //   localVideo.srcObject = localMediaStream;
-    //   localVideo.onloadedmetadata = function(e) {
-    //     localVideo.play();
-    //   }
-
-    //   // The default port for sending (or listening to) STUN/TURN requests is 3478.
-    //   // The default port for sending (or listening to) STUN/TURN over TLS is 5349.
-    //   let pionSession = new PionSession(SIGNALER_URI, '', {
-    //     iceServers: [
-    //       {
-    //         urls: 'stun:localhost:3478',
-    //       }
-    //     ],
-    //     mandatory: {OfferToReceiveVideo: true, OfferToReceiveAudio: true}
-    //   })
-
-    //   pionSession.eventHandler = event => {
-    //     switch(event.type) {
-    //       case PionEvents.MEDIA_START:
-    //         addRemoteVideo(event.media);
-    //         break;
-    //       case PionEvents.MEDIA_STOP: 
-    //         removeRemoteVideo(event.media);
-    //         break;
-    //       default:
-    //         console.warn(event);
-    //     }
-    //   }
-    //   pionSession.start();
-    //   pionSession.addMedia(localMediaStream);
-
-    //   let isAdded = true;
-    //   let mutateLoop = () => {
-    //     if (isAdded) {
-    //       pionSession.removeMedia(localMediaStream);
-    //     } else {
-    //       pionSession.addMedia(localMediaStream);
-    //     }
-    //     isAdded = !isAdded;
-    //   }
-
-    //   document.getElementById('toggleVideo').onclick = mutateLoop;
-    // },
-    // function(err) {
-    //   console.log('The following error occurred when trying to use getUserMedia: ' + err);
-    // });
   </script>
 </body>
 </html>

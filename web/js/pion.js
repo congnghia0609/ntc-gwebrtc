@@ -152,7 +152,6 @@ function PionSession (wsUri, rtcPeerConfiguration) {
     }
     currentTimeout += STEP_TIMEOUT;
 
-    // ws = new WebSocket(`wss://${signalerUri}?${sessionParams}`)
     ws = new WebSocket(wsUri)
     ws.onmessage = (event) => {
       let message = JSON.parse(event.data);
