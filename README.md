@@ -17,7 +17,7 @@ cd $GOPATH/src/github.com/congnghia0609/ntc-gwebrtc
 ./gen-ssl-cert.sh
 ```
 
-**Option 1**
+**Option 1: Start by DOcker**
 - Start docker compose.
 ```bash
 # Start all module
@@ -30,7 +30,7 @@ docker ps
 - Open on browser: [https://localhost:5000/](https://localhost:5000/) (Trust all localhost HTTPS certificates). Open multiple tabs and chat live video.
 
 
-**Option 2**
+**Option 2: Start manual**
 - Start step-by-step on multi-terminal.
 ```bash
 # Start signal
