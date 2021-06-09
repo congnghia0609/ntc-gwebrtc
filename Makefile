@@ -13,3 +13,7 @@ signal:
 .PHONY: turn
 turn:
 	@cd ./turn; reflex -r . -s go run main.go; cd ..;
+
+.PHONY: nsignal
+nsignal:
+	@cd ./nsignal; gin -p 5001; cd ..;
