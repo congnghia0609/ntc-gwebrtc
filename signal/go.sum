@@ -4,6 +4,8 @@ github.com/codegangsta/envy v0.0.0-20141216192214-4b78388c8ce4 h1:ihrIKrLQzm6Q6N
 github.com/codegangsta/envy v0.0.0-20141216192214-4b78388c8ce4/go.mod h1:X7wHz0C25Lga6CnJ4WAQNbUQ9P/8eWSNv8qIO71YkSM=
 github.com/codegangsta/gin v0.0.0-20171026143024-cafe2ce98974 h1:ysuVNDVE4LIky6I+6JlgAKG+wBNKMpVv3m3neVpvFVw=
 github.com/codegangsta/gin v0.0.0-20171026143024-cafe2ce98974/go.mod h1:UBYuwaH3dMw91EZ7tGVaFF6GDj5j46S7zqB9lZPIe58=
+github.com/congnghia0609/ntc-gsignal v0.0.1 h1:vznFhUGCIVr6jRZ2CwO54reuVl9T5+IMsSfAMTg1uUg=
+github.com/congnghia0609/ntc-gsignal v0.0.1/go.mod h1:pNxJXJmRoV+wiRtpT5VnZ0iIQplEZ2Ip93iTTVF29gI=
 github.com/congnghia0609/ntc-gwebrtc v0.0.0-20210609045729-cb09fe09afa2 h1:nmfGLEot0q+EnW6e5Jd6nbJKquCJEacdWPObhUzrj4M=
 github.com/coreos/go-systemd v0.0.0-20190321100706-95778dfbb74e/go.mod h1:F5haX7vjVVG0kc13fIWeqUViNPyEJxv/OmvnBo0Yme4=
 github.com/gorilla/mux v1.8.0 h1:i40aqfkR1h2SlN9hojwV5ZA91wcXFOvkdNIeFDP5koI=
