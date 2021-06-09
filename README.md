@@ -46,5 +46,9 @@ make web
 - Open on browser: [http://localhost:5000/](http://localhost:5000/). Open multiple tabs and chat live video.
 
 
+## WebRTC handshake
+![WebRTC handshake](webrtc-handshake.png)
+
+
 ## License
 This code is under the [Apache License v2](https://www.apache.org/licenses/LICENSE-2.0).  
