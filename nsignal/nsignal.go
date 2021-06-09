@@ -4,8 +4,7 @@ import (
 	"net/http"
 	"net/url"
 
-	"api"
-
+	"github.com/congnghia0609/ntc-gwebrtc/nsignal/api"
 	"github.com/gorilla/mux"
 	"github.com/pkg/errors"
 )

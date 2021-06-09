@@ -8,8 +8,7 @@ import (
 	"sync"
 	"time"
 
-	"room"
-
+	"github.com/congnghia0609/ntc-gwebrtc/nsignal/room"
 	"github.com/pkg/errors"
 	"github.com/rs/zerolog/log"
 
