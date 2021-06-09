@@ -11,7 +11,7 @@ import (
 	"net/url"
 	"os"
 
-	"github.com/congnghia0609/ntc-gwebrtc/nsignal"
+	"github.com/pion/signaler"
 )
 
 type SignalServer struct {
@@ -39,6 +39,6 @@ func main() {
 		port = "443"
 	}
 	log.Printf("Signal server is running on port: %s", port)
-	// fmt.Println(signaler.Start(&SignalServer{}, port))
-	fmt.Println(nsignal.Start(&SignalServer{}, port))
+	fmt.Println(signaler.Start(&SignalServer{}, port))
+	// fmt.Println(nsignal.Start(&SignalServer{}, port))
 }
